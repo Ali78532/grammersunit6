@@ -4,78 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قواعد اليونت السادس</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', sans-serif;
-            margin: 20px;
-            background-color: #212121;
-            color: #ffffff;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #ffff00; /* لون أصفر */
-            font-size: 40px;
-            text-transform: uppercase;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-        }
-        .question-container {
-            margin-bottom: 25px;
-            padding: 25px;
-            border-radius: 20px;
-            background-color: #424242;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
-        }
-        .question {
-            color: #80deea;
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-        .option {
-            cursor: pointer;
-            padding: 12px 18px;
-            border: 2px solid #757575;
-            border-radius: 10px;
-            margin: 10px 0;
-            background-color: transparent;
-            color: #fff;
-            font-size: 18px;
-            text-align: left;
-            display: block;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .option:hover {
-            background-color: #333;
-            transform: scale(1.05);
-        }
-        .option.correct {
-            background-color: #4caf50;
-            color: white;
-        }
-        .option.wrong {
-            background-color: #f44336;
-            color: white;
-        }
-        .option.selected {
-            transform: scale(1.1);
-        }
-        .result {
-            font-size: 30px;
-            margin-top: 30px;
-            font-weight: bold;
-            color: #ffeb3b;
-            text-align: center;
-            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
-        }
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 18px;
-            color: #b0bec5;
-        }
-    </style>
+<style>
+    body {
+        font-family: 'Helvetica Neue', sans-serif;
+        margin: 20px;
+        background-color: #121212; /* لون خلفية داكن */
+        color: #e0e0e0; /* لون نص رمادي فاتح */
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #90caf9; /* لون أزرق فاتح */
+        font-size: 30px;
+        text-transform: uppercase;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    }
+    .question-container {
+        margin-bottom: 25px;
+        padding: 25px;
+        border-radius: 15px;
+        background-color: #1e1e1e; /* خلفية رمادية داكنة */
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+    .question {
+        color: #64b5f6; /* لون أزرق متوسط */
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+    .option {
+        cursor: pointer;
+        padding: 12px 18px;
+        border: 2px solid #37474f; /* لون حدود رمادي غامق */
+        border-radius: 10px;
+        margin: 10px 0;
+        background-color: #263238; /* خلفية داكنة */
+        color: #e0e0e0; /* لون نص فاتح */
+        font-size: 18px;
+        text-align: left;
+        display: block;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .option:hover {
+        background-color: #546e7a; /* لون رمادي عند التمرير */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    .option.correct {
+        background-color: #388e3c; /* لون أخضر */
+        color: white;
+    }
+    .option.wrong {
+        background-color: #d32f2f; /* لون أحمر */
+        color: white;
+    }
+    .option.selected {
+        transform: scale(1.05);
+    }
+    .result {
+        font-size: 28px;
+        margin-top: 30px;
+        font-weight: bold;
+        color: #eeee00; /* لون اصفر */
+        text-align: center;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+    .footer {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 18px;
+        color: #ccc ;
+    }
+</style>
 </head>
 <body>
     <h1>قواعد اليونت السادس</h1>
