@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قواعد اليونت السادس</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 20px;
+            background-color: #212121;
+            color: #ffffff;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffff00; /* لون أصفر */
+            font-size: 40px;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+        .question-container {
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 20px;
+            background-color: #424242;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        }
+        .question {
+            color: #80deea;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        .option {
+            cursor: pointer;
+            padding: 12px 18px;
+            border: 2px solid #757575;
+            border-radius: 10px;
+            margin: 10px 0;
+            background-color: transparent;
+            color: #fff;
+            font-size: 18px;
+            text-align: left;
+            display: block;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .option:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+        .option.correct {
+            background-color: #4caf50;
+            color: white;
+        }
+        .option.wrong {
+            background-color: #f44336;
+            color: white;
+        }
+        .option.selected {
+            transform: scale(1.1);
+        }
+        .result {
+            font-size: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+            color: #ffeb3b;
+            text-align: center;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 18px;
+            color: #b0bec5;
+        }
+    </style>
+</head>
+<body>
+    <h1>قواعد اليونت السادس</h1>
+
+    <div id="quiz-container">
+        <div class="quiz">
+            <div class="question-container">
+                <p class="question">1. Every family will have access to the internet, ........... will be fast and cheap.</p>
+                <div class="option" data-correct="false">Who</div>
+                <div class="option" data-correct="false">Where</div>
+                <div class="option" data-correct="true">Which</div>
+            </div>
+            <div class="question-container">
+                <p class="question">2. Students .......... want to study History can visit the museum.</p>
+                <div class="option" data-correct="true">Who</div>
+                <div class="option" data-correct="false">Which</div>
+                <div class="option" data-correct="false">What</div>
+            </div>
+            <div class="question-container">
+                <p class="question">3. The teachers, ........... could be anywhere in the world, will be experts.</p>
+                <div class="option" data-correct="false">That</div>
+                <div class="option" data-correct="true">Who</div>
+                <div class="option" data-correct="false">Where</div>
+            </div>
+            <div class="question-container">
+                <p class="question">4. She will visit ........ pyramids.</p>
+                <div class="option" data-correct="false">a</div>
+                <div class="option" data-correct="false">an</div>
+                <div class="option" data-correct="true">the</div>
+            </div>
+            <div class="question-container">
+                <p class="question">5. I need ....... doctor.</p>
+                <div class="option" data-correct="true">a</div>
+                <div class="option" data-correct="false">an</div>
+                <div class="option" data-correct="false">the</div>
+            </div>
+        </div>
+
+        <div class="result">درجتك: <span id="score">0</span></div>
+    </div>
+
+    <div class="footer">إعداد الأستاذ: علي حسين</div>
+
+    <script>
+        const options = document.querySelectorAll('.option');
+        const resultSpan = document.getElementById('score');
+        let score = 0;
+
+        // إنشاء عناصر صوتية
+        const correctSound = new Audio('Sounds/Correct.wav');
+        const wrongSound = new Audio('Sounds/Wrong.wav');
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                const question = option.parentElement;
+                const alreadyAnswered = question.querySelector('.option.correct') || question.querySelector('.option.wrong');
+
+                if (alreadyAnswered) {
+                    return;
+                }
+
+                const isCorrect = option.getAttribute('data-correct') === "true";
+                if (isCorrect) {
+                    option.classList.add('correct');
+                    score += 2;
+                    correctSound.play(); // تشغيل صوت الإجابة الصحيحة
+                } else {
+                    option.classList.add('wrong');
+                    wrongSound.play(); // تشغيل صوت الإجابة الخاطئة
+                    if (navigator.vibrate) {
+                        navigator.vibrate(80);
+                    }
+                }
+
+                const siblings = question.querySelectorAll('.option');
+                siblings.forEach(sibling => {
+                    if (sibling.getAttribute('data-correct') === "true") {
+                        sibling.classList.add('correct');
+                    }
+                });
+
+                option.classList.add('selected');
+                resultSpan.textContent = score;
+            });
+        });
+    </script>
+</body>
+</html>
